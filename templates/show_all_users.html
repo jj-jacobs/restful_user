@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <form action="/users/new">
+        <input type="submit" name="go_new" value="add a new user">
+    </form>
+    <table>
+        {%for user_man in user_prof%}
+        <tr>
+            <td>ID: {{user_man["id"]}}<td>
+            <td>Name: {{user_man["first_name"]}} {{user_man["last_name"]}}<td>
+            <td>Email: {{user_man["email"]}}<td>
+            <td>
+                 <a href="/users/{{user_man['id']}}/edit">edit</a>
+            </td>
+            <td>
+                <a href="/users/{{user_man['id']}}/delete">delete</a>
+            </td>
+            <td>
+                <a href="/users/{{user_man['id']}}">show</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>
